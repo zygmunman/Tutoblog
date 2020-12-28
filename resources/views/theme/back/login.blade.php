@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html dir="ltr">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +19,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-
 <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->
@@ -45,7 +43,10 @@
                         <span class="db"><img src="{{asset("assets/back/images/logo.png")}}" alt="logo" /></span>
                     </div>
                     <!-- Form -->
-                    <form  action="{{route("login")}}"  id="loginform" class="form-horizontal m-t-20" method="POST">
+                    @if ($errors->any())
+                        <x-alert tipo="danger" :mensaje="$errors"/>
+                    @endif
+                    <form  action="{{route("login")}}"  id="loginform1" class="form-horizontal m-t-20" method="POST">
                         @csrf
                         <div class="row p-b-30">
                             <div class="col-12">
@@ -53,13 +54,13 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
+                                    <input type="email" name="email" class="form-control form-control-lg" value="{{old("email")}}" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required="">
+                                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" minlength="5" required>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +143,5 @@
         $("#loginform").fadeIn();
     });
     </script>
-
 </body>
-
 </html>
