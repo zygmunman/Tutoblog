@@ -13,7 +13,7 @@
     <!-- Custom CSS -->
     <link href="{{asset("assets/back/css/style.min.css")}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -44,9 +44,9 @@
                     </div>
                     <!-- Form -->
                     @if ($errors->any())
-                        <x-alert tipo="danger" :mensaje="$errors"/>
+                    <x-alert tipo="danger" :mensaje="$errors"/>
                     @endif
-                    <form  action="{{route("login")}}"  id="loginform1" class="form-horizontal m-t-20" method="POST">
+                    <form  action="{{route("login")}}"  id="loginform" class="form-horizontal m-t-20" method="POST">
                         @csrf
                         <div class="row p-b-30">
                             <div class="col-12">
@@ -54,13 +54,13 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="email" name="email" class="form-control form-control-lg" value="{{old("email")}}" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" required>
+                                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" minlength="5" required>
+                                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                     </form>
                 </div>
                 <div id="recoverform">
-                    <div class="text-center">
+                    <div class="text-center"
                         <span class="text-white">Escriba su email para que reciba información de la recuperación de contraseña</span>
                     </div>
                     <div class="row m-t-20">

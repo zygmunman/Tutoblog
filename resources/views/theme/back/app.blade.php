@@ -100,4 +100,5 @@
 	@yield("scripts")
     <!--Custom JavaScript -->
     <script src="{{asset("assets/back/js/custom.min.js")}}"></script>
+</body>
 </html>
