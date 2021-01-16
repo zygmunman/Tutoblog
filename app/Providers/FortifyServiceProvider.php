@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Providers;
-
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
@@ -12,7 +10,6 @@ use Laravel\Fortify\Fortify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -42,6 +39,7 @@ class FortifyServiceProvider extends ServiceProvider
                 $roles = $usuario->roles()->first();
                 if ($roles) {
                     $request->session()->put('rol_slug', $roles->slug);
+                    $request->session()->put('rol_id', $roles->id);
                     return $usuario;
                 }
                 return false;

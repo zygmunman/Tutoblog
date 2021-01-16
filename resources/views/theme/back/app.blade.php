@@ -9,11 +9,13 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset("assets/back/images/favicon.png")}}">
-    <title>@yield('titulo', 'Inicio') - TutoBlog</title>
+    <title>@yield("titulo", "Inicio") - TutoBlog</title>
     <!-- Custom CSS -->
     <!-- Custom CSS -->
     <link href="{{asset("assets/back/css/style.min.css")}}" rel="stylesheet">
+    <link href="{{asset("assets/back/css/tutoblog.css")}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -29,7 +31,6 @@
             <div class="lds-pos"></div>
         </div>
     </div>
-
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -37,14 +38,14 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        @include('theme.back.top_header')
+        @include("theme.back.top_header")
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        @include('theme.back.aside')
+        @include("theme.back.aside")
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -56,8 +57,7 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-            @yield('contenido')
-
+                @yield("contenido")
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -65,7 +65,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            @include('theme.back.footer')
+            @include("theme.back.footer")
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -77,7 +77,6 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
-
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
@@ -93,12 +92,17 @@
     <script src="{{asset("assets/back/js/sidebarmenu.js")}}"></script>
     <!--Plugins -->
     <script src="{{asset("assets/back/libs/jquery-validation/dist/jquery.validate.min.js")}}"></script>
-    <script src="{{asset("assets/back/libs/jquery-validation/localization/messages_es.js")}}"></script>
+    <script src="{{asset("assets/back/libs/jquery-validation/dist/localization/messages_es.js")}}"></script>
+
+    <script src="{{asset("assets/back/libs/jquery-validation/dist/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js")}}"></script>
+    <script src="{{asset("assets/back/libs/jquery-validation/dist/jquery.flot.tooltip/js/jquery.flot.tooltip.source.js")}}"></script>
+
     <!--Plugins de paginas especificas -->
 	@yield("scriptsPlugins")
 	<!--Scripts de paginas especificas -->
 	@yield("scripts")
     <!--Custom JavaScript -->
     <script src="{{asset("assets/back/js/custom.min.js")}}"></script>
+    <script src="{{asset("assets/back/js/tutoblog.js")}}"></script>
 </body>
 </html>
