@@ -4,16 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTalaCategorias extends Migration
+class CrearTablaRol extends Migration
 {
-    /**
+       /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('categorias', function (Blueprint $table) {
+        Schema::create('rol', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 50)->unique();
             $table->string('slug', 50)->unique();
@@ -28,6 +28,7 @@ class CrearTalaCategorias extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+
+        Schema::dropIfExists('rol');
     }
 }

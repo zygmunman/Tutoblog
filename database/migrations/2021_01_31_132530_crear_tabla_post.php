@@ -1,10 +1,9 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaPosts extends Migration
+class CrearTablaPost extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +12,11 @@ class CrearTablaPosts extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+
+        Schema::create('post', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('usuarios_id');
-            $table->foreign('usuarios_id', 'fk_post_usuario')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('restrict');
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id', 'fk_post_usuario')->references('id')->on('usuario')->onDelete('cascade')->onUpdate('restrict');
             $table->string('titulo', 150);
             $table->string('slug', 150)->unique();
             $table->string('descripcion', 255);
@@ -25,7 +25,6 @@ class CrearTablaPosts extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -33,6 +32,6 @@ class CrearTablaPosts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('post');
     }
 }

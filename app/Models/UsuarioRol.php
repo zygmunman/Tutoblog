@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class UsuarioRol extends Model
 {
     use HasFactory;
-    protected $table = "usuarios_roles";
+    protected $table = "usuario_rol";
 }

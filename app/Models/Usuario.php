@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class Usuario extends Authenticatable
 {
     use HasFactory, Notifiable;
+    protected $table = 'usuario';
     protected $guarded = [];
     /**
      * The attributes that should be hidden for arrays.
@@ -30,6 +31,6 @@ class Usuario extends Authenticatable
     ];
     public function roles()
     {
-        return $this->belongsToMany(Rol::class, 'usuarios_roles', 'usuarios_id', 'roles_id');
+        return $this->belongsToMany(Rol::class, 'usuario_rol');
     }
 }
