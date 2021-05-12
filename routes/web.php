@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MiCuentaController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\PermisoController;
+use App\Http\Controllers\Backend\PermisoRolController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\MenuRolController;
 
@@ -50,4 +51,8 @@ Route::group(['prefix' => 'admin-backend', 'middleware' => ['auth', 'superadmini
      Route::post('permiso', [PermisoController::class, 'guardar'])->name('permiso.guardar');
      Route::put('permiso/{id}', [PermisoController::class, 'actualizar'])->name('permiso.actualizar');
      Route::delete('permiso/{id}/eliminar', [PermisoController::class, 'eliminar'])->name('permiso.eliminar');
+
+    /* RTAS DE PERMISO-ROL */
+    Route::get('permiso-rol', [PermisoRolController::class, 'index'])->name('permiso-rol');
+    Route::post('permiso-rol', [PermisoRolController::class, 'guardar'])->name('permiso-rol.guardar');
 });
