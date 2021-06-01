@@ -44,6 +44,7 @@ class FortifyServiceProvider extends ServiceProvider
                 }
                 return false;
             }
+            return false;
         });
     }
 }

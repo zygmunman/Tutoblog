@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer("theme.back.aside", function ($view) {
             $rol_id = session()->get('rol_id');
-            $menuP = cache()->tags('Menu')->rememberForever("MenuTutoBlog.rolid.$rol_id", function () {
+            $menuP = cache()->tags('Menu')->rememberForever("Menu.rolid.$rol_id", function () {
                 return Menu::getMenu(true);
             });
             $view->with('menuPrincipal', $menuP);

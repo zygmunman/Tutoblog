@@ -6,9 +6,6 @@
         @if ($mensaje = session("mensaje"))
             <x-alert tipo="success" :mensaje="$mensaje"/>
         @endif
-        <div>
-            Estamos en mi cuenta
-        </div>
     </div>
 </div>
 @endsection

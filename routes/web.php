@@ -23,8 +23,8 @@ use App\Http\Controllers\Backend\MenuRolController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('theme.front.index');
+})->name('inicio');
 
 
 Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
