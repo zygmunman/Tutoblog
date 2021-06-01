@@ -1,10 +1,10 @@
 @extends('theme.back.app')
 @section('titulo')
-Sistema Permisos
+Sistema permisos
 @endsection
 
 @section("scripts")
-<script src="{{asset("assets/back/js/pages/scripts/permiso/crear.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/back/js/scripts/crear.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')

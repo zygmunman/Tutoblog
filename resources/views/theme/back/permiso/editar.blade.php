@@ -1,10 +1,10 @@
 @extends('theme.back.app')
 @section('titulo')
-Sistema Permisos
+Sistema permisos
 @endsection
 
 @section("scripts")
-<script src="{{asset("assets/back/js/pages/scripts/permiso/crear.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/back/js/scripts/crear.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')
@@ -15,7 +15,7 @@ Sistema Permisos
         @endif
         <div class="card">
             <div class="card-header bg-success">
-                <h5 class="text-white float-left">Editar Permiso: {{$data->nombre}}</h5>
+                <h5 class="text-white float-left">Editar permiso: {{$data->nombre}}</h5>
                 <a href="{{route('permiso')}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>
             </div>
             <form action="{{route("permiso.actualizar", $data->id)}}" id="form-general" class="form-horizontal" method="POST">

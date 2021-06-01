@@ -12,7 +12,7 @@ Menú
 @endsection
 
 @section("scripts")
-<script src="{{asset("assets/back/js/pages/scripts/menu/index.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/back/js/scripts/menu/index.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')

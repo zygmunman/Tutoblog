@@ -6,7 +6,6 @@ $(document).ready(function () {
         form = $(this).parents('form:first');
         $('#confirmar-eliminar').modal('show');
     });
-
     $('#accion-eliminar').on('click', function (event) {
         event.preventDefault();
         $('#confirmar-eliminar').modal('hide');

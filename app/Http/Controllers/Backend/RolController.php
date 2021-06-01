@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\ValidarRol;
 use App\Models\Backend\Rol;
-use Illuminate\Http\Request;
 
 class RolController extends Controller
 {
@@ -16,6 +16,8 @@ class RolController extends Controller
     public function index()
     {
         //
+        $roles = Rol::get();
+        return view('theme.back.rol.index', compact('roles'));
     }
 
     /**
@@ -23,10 +25,13 @@ class RolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function crear()
     {
         //
+        return view('theme.back.rol.crear');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,20 +39,10 @@ class RolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardar(ValidarRol $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Rol  $rol
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Rol $rol)
-    {
-        //
+        Rol::create($request->validated());
+        return redirect()->route('rol')->with('mensaje', 'Rol guardado correctamente');
     }
 
     /**
@@ -56,9 +51,9 @@ class RolController extends Controller
      * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rol $rol)
+    public function editar(Rol $rol)
     {
-        //
+        return view('theme.back.rol.editar', compact('rol'));
     }
 
     /**
@@ -68,9 +63,10 @@ class RolController extends Controller
      * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rol $rol)
+    public function actualizar(ValidarRol $request, Rol $rol)
     {
-        //
+        $rol->update($request->validated());
+        return redirect()->route('rol')->with('mensaje', 'Rol actualizado correctamente');
     }
 
     /**
@@ -79,8 +75,9 @@ class RolController extends Controller
      * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rol $rol)
+    public function eliminar(Rol $rol)
     {
-        //
+        $rol->delete();
+        return redirect()->route('rol')->with('mensaje', 'Rol eliminado con exito');
     }
 }

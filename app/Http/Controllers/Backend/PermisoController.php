@@ -62,7 +62,8 @@ class PermisoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ValidacionPermiso $request, $id)
+
+    public function actualizar(ValidacionPermiso $request, $id)
     {
         Permiso::findOrFail($id)->update($request->validated());
         cache()->tags('Permiso')->flush();

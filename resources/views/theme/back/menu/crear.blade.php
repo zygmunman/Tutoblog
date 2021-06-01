@@ -3,7 +3,7 @@
     Sistema Menús
 @endsection
 @section("scripts")
-<script src="{{asset("assets/back/js/pages/scripts/menu/crear.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/back/js/scripts/menu/crear.js")}}" type="text/javascript"></script>
 @endsection
 @section('contenido')
 <div class="row">

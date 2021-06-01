@@ -1,10 +1,10 @@
 @extends('theme.back.app')
 @section('titulo')
-    Sistema Menús
+Sistema roles
 @endsection
 
 @section("scripts")
-<script src="{{asset("assets/back/js/scripts/menu/crear.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/back/js/scripts/crear.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')
@@ -15,13 +15,13 @@
         @endif
         <div class="card">
             <div class="card-header bg-success">
-                <h5 class="text-white float-left">Editar Menu {{$data->nombre}}</h5>
-                <a href="{{route('menu')}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>
+                <h5 class="text-white float-left">Editar rol: {{$rol->nombre}}</h5>
+                <a href="{{route('rol')}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>
             </div>
-            <form action="{{route("menu.actualizar", $data->id)}}" id="form-general" class="form-horizontal" method="POST">
+            <form action="{{route("rol.actualizar", $rol)}}" id="form-general" class="form-horizontal" method="POST">
                 @csrf @method('put')
                 <div class="card-body">
-                    @include("theme.back.menu.form")
+                    @include("theme.back.rol.form")
                 </div>
                 <div class="border-top">
                     <div class="card-body">
