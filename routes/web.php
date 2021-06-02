@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Backend\CategoriaController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MiCuentaController;
@@ -64,4 +64,12 @@ Route::group(['prefix' => 'admin-backend', 'middleware' => ['auth', 'superadmini
     /* RUTAS DE PERMISO-ROL */
     Route::get('permiso-rol', [PermisoRolController::class, 'index'])->name('permiso-rol');
     Route::post('permiso-rol', [PermisoRolController::class, 'guardar'])->name('permiso-rol.guardar');
+
+    /** RUTAS DE CATEGORIA */
+    Route::get('categoria', [CategoriaController::class, 'index'])->name('categoria');
+    Route::post('categoria/crear', [CategoriaController::class, 'crear'])->name('categoria.crear');
+    Route::put('categoria/{id}/editar', [CategoriaController::class, 'editar'])->name('categoria.editar');
+    Route::post('categoria', [CategoriaController::class, 'guardar'])->name('categoria.guardar');
+    Route::put('categoria/{id}', [CategoriaController::class, 'actualizar'])->name('categoria.actualizar');
+    Route::delete('categoria/{id}/eliminar', [CategoriaController::class, 'eliminar'])->name('categoria.eliminar');
 });
