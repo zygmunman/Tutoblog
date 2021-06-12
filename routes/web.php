@@ -7,6 +7,7 @@ use App\Http\Controllers\MiCuentaController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\PermisoController;
 use App\Http\Controllers\Backend\PermisoRolController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RolController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\MenuRolController;
@@ -72,4 +73,13 @@ Route::group(['prefix' => 'admin-backend', 'middleware' => ['auth', 'superadmini
     Route::post('categoria', [CategoriaController::class, 'guardar'])->name('categoria.guardar');
     Route::put('categoria/{id}', [CategoriaController::class, 'actualizar'])->name('categoria.actualizar');
     Route::delete('categoria/{id}/eliminar', [CategoriaController::class, 'eliminar'])->name('categoria.eliminar');
+
+
+    /** RUTAS DE Post */
+    Route::get('post', [PostController::class, 'index'])->name('post');
+    Route::post('post/crear', [PostController::class, 'crear'])->name('post.crear');
+    Route::put('post/{post}/editar', [PostController::class, 'editar'])->name('post.editar');
+    Route::post('post', [PostController::class, 'guardar'])->name('post.guardar');
+    Route::put('post/{post}', [PostController::class, 'actualizar'])->name('post.actualizar');
+    Route::delete('post/{post}/eliminar', [PostController::class, 'eliminar'])->name('post.eliminar');
 });
