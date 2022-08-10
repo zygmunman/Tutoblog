@@ -11,14 +11,15 @@ if (!function_exists('isSuperAdmin')) {
         return Session::get('rol_slug') == 'super_administrador';
     }
 }
-
+//función que se utiliza cuando trabajamos con la caché de 'redis'
 if (!function_exists('canUser')) {
     function canUser($permiso, $redirect = true)
     {
         if (Session::get('rol_slug') == 'super_administrador') {
-            return true;
+            return true;//Si el usuario es el 'super_administrador', puede entrar en cualquier parte del sistema,
+                        //sin pasar por el módulo de 'permisos'
         } else {
-            $rol_id = Session::get('rol_id');
+            $rol_id = Session::get('rol_id');//este 'rol_id' viene de FortifyServiceProvider (lin 43)
             $permisos = Cache::tags('Permiso')->rememberForever("Permiso.rolid.$rol_id", function () use($rol_id) {
                 return Permiso::whereHas('roles', function (Builder $query) use ($rol_id) {
                     $query->where('rol_id', $rol_id);

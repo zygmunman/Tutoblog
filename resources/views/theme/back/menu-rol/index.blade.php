@@ -2,11 +2,9 @@
 @section("titulo")
 Menú Rol
 @endsection
-
 @section("scripts")
 <script src="{{asset("assets/back/js/scripts/menu-rol/index.js")}}" type="text/javascript"></script>
 @endsection
-
 @section('contenido')
 <div class="row">
     @csrf

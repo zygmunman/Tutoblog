@@ -77,7 +77,7 @@
                     </form>
                 </div>
                 <div id="recoverform">
-                    <div class="text-center"
+                    <div class="text-center">
                         <span class="text-white">Escriba su email para que reciba información de la recuperación de contraseña</span>
                     </div>
                     <div class="row m-t-20">
@@ -123,8 +123,8 @@
     <!-- ============================================================== -->
     <script src="{{asset("assets/back/libs/jquery/dist/jquery.min.js")}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{("assets/back/libs/popper.js/dist/umd/popper.min.js")}}"></script>
-    <script src="{{("assets/back/libs/bootstrap/dist/js/bootstrap.min.js")}}"></script>
+    <script src="{{asset("assets/back/libs/popper.js/dist/umd/popper.min.js")}}"></script>
+    <script src="{{asset("assets/back/libs/bootstrap/dist/js/bootstrap.min.js")}}"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->

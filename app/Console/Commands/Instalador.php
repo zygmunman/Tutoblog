@@ -8,6 +8,11 @@ use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * A través de la consola de Artisan creamos un comando en PHP llamado
+ * Instalador y que servirá para que el Superadministrador pueda crear diferentes
+ * roles, tales como Administrador, Supervisor, el propio SuperAdministrador, etc.
+ */
 class Instalador extends Command
 {
     /**
@@ -35,8 +40,10 @@ class Instalador extends Command
     }
 
     /**
-     * Execute the console command.
-     *
+     * Con la función 'handle' lo que hacemos es verificar que no haya un rol ya creado asignado
+     * a un usuario; si no lo hay, creamos el rol, 'SuperAdmin' en nuestro caso, creamos también
+     * el usuario para ese rol y, mediante la función 'roles' que une 'usuarios'  y 'roles',
+     * añadimos ('attach') el rol a ese usuario.
      * @return int
      */
     public function handle()
@@ -72,8 +79,8 @@ class Instalador extends Command
     {
         return Usuario::create([
             'nombre' => 'tuto_admin',
-            'email' => 'rgt90@hotmail.com',
-            'password' => Hash::make('pass1234'),
+            'email' => 'jmart237@gmail.com',
+            'password' => Hash::make('averroes47'),
             'estado' => 1
         ]);
     }

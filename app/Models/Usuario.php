@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
 class Usuario extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -29,6 +30,18 @@ class Usuario extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Este método será usado en toda la aplicación; cada vez que se invoque, nos
+     * devolverá todos los roles que tiene el usuario que lo invoca.
+     * Debido a los problemas de nomenclatura con el ingles (seria user_role), hemos de
+     * indicar con qué tabla se relaciona este modelo Usuario con la tabla 'roles';
+     * dicha tabla es 'usuario_rol', que funciona como puente.
+     * El autor decide cambiar el plural de las tablas por el singular, igual que los modelos.
+     * Al método 'belongsToMany' le pasamos la tabla puente ('usuario_rol') como segundo parámetro.
+     *
+     * @return void
+     */
     public function roles()
     {
         return $this->belongsToMany(Rol::class, 'usuario_rol');

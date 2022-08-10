@@ -18,7 +18,8 @@ class PermisoRolController extends Controller
     {
         $roles = Rol::orderBy('id')->pluck('nombre', 'id');
         $permisos = Permiso::with('roles')->orderBy('id')->get();
-        return view('theme.back.permiso-rol.index', compact('roles', 'permisos'));
+        $permisosRols = Permiso::with('roles')->get()->pluck('roles', 'id')->toArray();
+        return view('theme.back.permiso-rol.index', compact('roles', 'permisos', 'permisosRols'));
     }
 
 
@@ -44,6 +45,5 @@ class PermisoRolController extends Controller
             abort(404);
         }
     }
-
 
 }

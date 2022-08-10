@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset("assets/back/images/favicon.png")}}">
-    <title>@yield("titulo", "Inicio") - TutoBlog</title>
+    <title>@yield("titulo", "Inicio") | TutoBlog</title>
     <!-- Custom CSS -->
     <!-- Custom CSS -->
     <link href="{{asset("assets/back/libs/datatables.net-bs4/css/dataTables.bootstrap4.css")}}" rel="stylesheet">
@@ -43,14 +43,14 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        @include("theme.back.top_header")
+                @include("theme.back.top_header")
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        @include("theme.back.aside")
+                @include("theme.back.aside")
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -89,7 +89,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            @include("theme.back.footer")
+                    <!--@include("theme.back.footer")-->
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

@@ -2,19 +2,15 @@
 @section("titulo")
 Menú
 @endsection
-
 @section("styles")
 <link href="{{asset("assets/back/extra-libs/nestable/jquery.nestable.css")}}" rel="stylesheet" type="text/css" />
 @endsection
-
 @section("scriptsPlugins")
 <script src="{{asset("assets/back/extra-libs/nestable/jquery.nestable.js")}}" type="text/javascript"></script>
 @endsection
-
 @section("scripts")
 <script src="{{asset("assets/back/js/scripts/menu/index.js")}}" type="text/javascript"></script>
 @endsection
-
 @section('contenido')
 <div class="row">
     <div class="col-lg-12">

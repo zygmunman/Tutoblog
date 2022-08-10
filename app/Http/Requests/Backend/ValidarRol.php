@@ -24,6 +24,10 @@ class ValidarRol extends FormRequest
     public function rules()
     {
         return [
+            /** 'optional' lo que hace es evaluar si '$this->route('rol')' es nulo o no lo es:
+             * si es nulo, lo devuelve como tal; si no lo es, valida el nombre y el slug que le
+             * hemos pasado, excluyendo el '->id' del objeto en cuestión
+             */
             'nombre' => 'required|max:50|unique:rol,nombre,' . optional($this->route('rol'))->id,
             'slug' => 'required|max:50|unique:rol,slug,' . optional($this->route('rol'))->id
         ];

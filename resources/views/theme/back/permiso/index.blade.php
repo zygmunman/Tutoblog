@@ -2,11 +2,9 @@
 @section("titulo")
 Permisos
 @endsection
-
 @section("scripts")
-<script src="{{asset("assets/back/js/scripts/index.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/back/js/scripts/permiso/index.js")}}" type="text/javascript"></script>
 @endsection
-
 @section('contenido')
 <div class="row">
     <div class="col-lg-12">
@@ -25,7 +23,7 @@ Permisos
                             <tr>
                                 <th>Nombre</th>
                                 <th>slug</th>
-                                <th class="width40">Acciones</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>

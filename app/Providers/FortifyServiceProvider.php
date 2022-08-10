@@ -33,13 +33,14 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::loginView(fn () => view('theme.back.login'));
+
         Fortify::authenticateUsing(function (Request $request) {
             $usuario = Usuario::where('email', $request->email)->first();
             if ($usuario && Hash::check($request->password, $usuario->password)) {
                 $roles = $usuario->roles()->first();
                 if ($roles) {
-                    $request->session()->put('rol_slug', $roles->slug);
-                    $request->session()->put('rol_id', $roles->id);
+                    $request->session()->put('rol_slug', $roles->slug);//en la var de sesion del ususario ponemos su slug
+                    $request->session()->put('rol_id', $roles->id);//en la var de sesión del usuario ponemos su rol
                     return $usuario;
                 }
                 return false;

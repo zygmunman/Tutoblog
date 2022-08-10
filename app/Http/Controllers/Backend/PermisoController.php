@@ -16,7 +16,7 @@ class PermisoController extends Controller
      */
     public function index()
     {
-        $permisos = Permiso::get();
+        $permisos = Permiso::orderBy('id')->get();
         return view('theme.back.permiso.index', compact('permisos'));
     }
 
@@ -67,7 +67,7 @@ class PermisoController extends Controller
     {
         Permiso::findOrFail($id)->update($request->validated());
         cache()->tags('Permiso')->flush();
-        return redirect()->route('permiso')->with('mensaje', 'Permiso actualizado correctamente');
+        return redirect()->route('permiso')->with('mensaje', 'Permiso actualizado con éxito');
     }
 
     /**
@@ -80,6 +80,6 @@ class PermisoController extends Controller
     {
         Permiso::destroy($id);
         cache()->tags('Permiso')->flush();
-        return redirect()->route('permiso')->with('mensaje', 'Permiso eliminado con exito');
+        return redirect()->route('permiso')->with('mensaje', 'Permiso eliminado con éxito');
     }
 }

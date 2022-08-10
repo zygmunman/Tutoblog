@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //var form;
+    var form;
     $('#nestable').nestable().on('change', function () {
         const data = {
             menu: window.JSON.stringify($('#nestable').nestable('serialize')),
@@ -15,7 +15,7 @@ $(document).ready(function () {
         });
     });
 
-    /*$('.boton-eliminar').on('click', function (event) {
+    $('.boton-eliminar').on('click', function (event) {
         event.preventDefault();
         form = $(this).parents('form:first');
         $('#confirmar-eliminar').modal('show');
@@ -25,7 +25,7 @@ $(document).ready(function () {
         event.preventDefault();
         $('#confirmar-eliminar').modal('hide');
         form.submit();
-    });*/
+    });
 
     $('#nestable').nestable('expandAll');
 });

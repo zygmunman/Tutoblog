@@ -5,14 +5,18 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="p-t-30">
                 @foreach ($menuPrincipal as $key => $item)
-                @if ($item["menu_id"] != null)
-                    @break
-                @endif
-                @include("theme.back.aside-menu-item", ["item" => $item])
-            @endforeach
+                    @if ($item["menu_id"] != null)
+                        @break
+                    @endif
+                    @include('theme.back.aside-menu-item', ["item" => $item])
+                    @endforeach
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
     </div>
     <!-- End Sidebar scroll-->
 </aside>
+
+
+
+

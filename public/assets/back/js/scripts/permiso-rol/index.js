@@ -20,7 +20,7 @@ $(document).ready(function () {
             type: 'POST',
             data: data,
             success: function (respuesta) {
-                console.log()
+                console.log(respuesta.respuesta)
             }
         });
     }

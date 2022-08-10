@@ -24,8 +24,8 @@ class ValidacionPermiso extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|max:50|unique:permiso,nombre,' . $this->route('id'),
-            'slug' => 'required|max:50|unique:permiso,slug,' . $this->route('id')
+            'nombre' => 'required|max:50|unique:permiso,nombre,' . $this->route('id'), //que valide el route('id'), cuando este sea diferente del id que se está actualizando
+            'slug' => 'required|max:50|unique:permiso,slug,' . $this->route('id') //ídem
         ];
     }
 }

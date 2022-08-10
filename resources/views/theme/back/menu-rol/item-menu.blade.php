@@ -9,7 +9,7 @@
             class="menu_rol"
             data-url={{route('menu-rol.guardar')}}
             data-menu = {{$menu["id"]}}
-            value="{{$rol->id}}"
+            value={{$rol->id}}
             {{in_array($rol->id, array_column($menusRols[$menu["id"]], "id"))? "checked" : ""}}>
         </td>
     @endforeach

@@ -4,7 +4,7 @@ Sistema permisos
 @endsection
 
 @section("scripts")
-<script src="{{asset("assets/back/js/scripts/crear.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/back/js/scripts/permiso/crear.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')
