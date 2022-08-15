@@ -28,10 +28,13 @@
             @if ($mensaje = session("mensaje"))
                 <x-alert tipo="success" :mensaje = "mensaje"/>
             @endif
+            @if ($errors->any())
+                <x-alert tipo="danger" :mensaje ="$errors"/>
+            @endif
             <div class="card">
                 <div class="card-header bg-success">
                     <h5 class="text-white float-left">Crear post</h5>
-                    <a href="{{route('post')}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>
+                    <a href="{{route("post")}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>
                 </div>
                 <form action="{{route('post.guardar')}}" id="form-general" class="form-horizontal" method="POST" autocomplete="off">
                 @csrf

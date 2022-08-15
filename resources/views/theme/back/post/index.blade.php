@@ -15,8 +15,8 @@ Post
         @endif
         <div class="card">
             <div class="card-header bg-info">
-                <h5 class="text-white float-left">Roles</h5>
-                <a href="{{route('rol.crear')}}" class="btn btn-outline-light btn-sm float-right">Crear post</a>
+                <h5 class="text-white float-left">Posts</h5>
+                <a href="{{route('post.crear')}}" class="btn btn-outline-light btn-sm float-right">Crear post</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -29,7 +29,7 @@ Post
                         <tbody>
                             @foreach ($posts as $post)
                                 <tr>
-                                    <td>{{$rol->id}}</td>
+                                    <td>{{$post->id}}</td>
                                 </tr>
                             @endforeach
                         </tbody>
