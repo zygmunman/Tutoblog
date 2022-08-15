@@ -11,7 +11,7 @@ if (!function_exists('isSuperAdmin')) {
         return Session::get('rol_slug') == 'super_administrador';
     }
 }
-//función que se utiliza cuando trabajamos con la caché de 'redis'
+//función que se utiliza cuando trabajamos con la caché de 'redis' y la variable de sesión
 if (!function_exists('canUser')) {
     function canUser($permiso, $redirect = true)
     {

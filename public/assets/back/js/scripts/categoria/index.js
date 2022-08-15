@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    var tabla = $('#data-table').DataTable();
+    var tabla = $('#data-table').DataTable();//#data-table viene del index de la vista lin(21)
     //Proceso nuevo Registro
-    $('#nuevo-registro').on('click', function (event) {
+    $('#nuevo-registro').on('click', function (event) {//#nuevo-registro viene del index de la vista lin(17)
         event.preventDefault();
         const data = {
             _token: $('input[name=_token]').val()
@@ -24,7 +24,7 @@ $(document).ready(function () {
         event.preventDefault();
         const form = $(this);
         swal.fire({
-            title: '¿ Seguro desea eliminar este registro ?',
+            title: '¿Seguro desea eliminar este registro?',
             text: 'Confirmar acción',
             type: 'warning',
             showCancelButton: true,
@@ -62,13 +62,13 @@ $(document).ready(function () {
                         tabla.row(form.parents('tr')).remove().draw(false);
                         APP.notificacion('El registro se eliminó correctamente', 'Tuto-Blog', 'success');
                     } else {
-                        APP.notificacion('El registro no pudo ser eliminado, lo más seguro es que este siendo usado en otra tabla', 'Tuto-Blog', 'error');
+                        APP.notificacion('El registro no pudo ser eliminado, lo más seguro es que esté    siendo usado en otra tabla', 'Tuto-Blog', 'error');
                     }
                 }
             },
             error: function (error) {
                 if (error.status == 403) {
-                    APP.notificacion('Error de seguridad, pongase en contacto con el Admin', 'Tuto-Blog', 'error');
+                    APP.notificacion('Error de seguridad, póngase en contacto con el Admin', 'Tuto-Blog', 'error');
                 } else {
                     var errors = error.responseJSON.errors;
                     $.each(errors, function (key, val) {
