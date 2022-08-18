@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Backend\Tag;
 use App\Models\Backend\Post;
 use Illuminate\Http\Request;
 use App\Models\Backend\Categoria;
-use App\Models\Backend\Tag;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Backend\ValidarPost;
 
 class PostController extends Controller
 {
@@ -39,11 +41,15 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function guardar(Request $request)
-    {
-        //
-    }
+    public function guardar(ValidarPost $request)
 
+    {
+        $post = Post::create($request->validated());
+        $categorias = $request->categoria;
+        $post->categoria()->attach(array_values($categorias));
+        return redirect()->route('post')->with('mensaje', 'Post guardado con éxito');
+
+    }
     /**
      * Display the specified resource.
      *

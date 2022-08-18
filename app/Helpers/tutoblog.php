@@ -27,7 +27,7 @@ if (!function_exists('canUser')) {
             });
             if (!in_array($permiso, $permisos)) {
                 if ($redirect) {
-                    abort(403, 'No tienes permisos para entrar en este modulo');
+                    abort(403, 'No tienes permisos para entrar en este módulo');
                 } else {
                     return false;
                 }
