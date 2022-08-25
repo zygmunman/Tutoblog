@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\ValidarTag;
 use App\Models\Backend\Tag;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::get();
+        return view('theme.back.tag.index',compact('tags'));
     }
 
     /**
@@ -25,7 +27,7 @@ class TagController extends Controller
      */
     public function crear()
     {
-        //
+        return view('theme.back.tag.crear');
     }
 
     /**
@@ -34,9 +36,10 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function guardar(Request $request)
+    public function guardar(ValidarTag $request)
     {
-        //
+        Tag::create($request->validated());
+        return redirect()->route('tag')->with('mensaje', 'Tag guardado correctamente');
     }
 
     /**
@@ -56,9 +59,10 @@ class TagController extends Controller
      * @param  \App\Models\Backend\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function editar(Tag $tag)
+    public function editar($id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+        return view('theme.back.tag.editar', compact('tag'));
     }
 
     /**
@@ -68,9 +72,10 @@ class TagController extends Controller
      * @param  \App\Models\Backend\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function actualizar(Request $request, Tag $tag)
+    public function actualizar(ValidarTag $request, $id)
     {
-        //
+        Tag::findOrFail($id)->update($request->validated());
+        return redirect()->route('tag')->with('mensaje', 'Tag actualizado con éxito');
     }
 
     /**
@@ -79,8 +84,10 @@ class TagController extends Controller
      * @param  \App\Models\Backend\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function eliminar(Tag $tag)
+    public function eliminar($id)
     {
-        //
+        Tag::destroy($id);
+        return redirect()->route('tag')->with('mensaje', 'Tag eliminado con éxito');
     }
+
 }

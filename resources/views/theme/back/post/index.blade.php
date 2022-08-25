@@ -24,12 +24,14 @@ Post
                         <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Título</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($posts as $post)
                                 <tr>
                                     <td>{{$post->id}}</td>
+                                    <td>{{$post->titulo}}</td>
                                 </tr>
                             @endforeach
                         </tbody>

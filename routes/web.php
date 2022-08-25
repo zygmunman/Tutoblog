@@ -3,14 +3,15 @@
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MiCuentaController;
-use App\Http\Controllers\Backend\CategoriaController;
-use App\Http\Controllers\Backend\MenuController;
-use App\Http\Controllers\Backend\PermisoController;
-use App\Http\Controllers\Backend\PermisoRolController;
-use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RolController;
-use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\TagController;
+use App\Http\Controllers\Backend\MenuController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\MenuRolController;
+use App\Http\Controllers\Backend\PermisoController;
+use App\Http\Controllers\Backend\CategoriaController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\PermisoRolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,4 +93,12 @@ Route::group(['prefix' => 'admin-backend', 'middleware' => ['auth', 'superadmini
     Route::post('post', [PostController::class, 'guardar'])->name('post.guardar');
     Route::put('post/{post}', [PostController::class, 'actualizar'])->name('post.actualizar');
     Route::delete('post/{post}/eliminar', [PostController::class, 'eliminar'])->name('post.eliminar');
+
+    /** RUTAS DE TAG */
+    Route::get('tag', [TagController::class, 'index'])->name('tag');
+    Route::post('tag/crear', [TagController::class, 'crear'])->name('tag.crear');
+    Route::put('tag/{id}/editar', [TagController::class, 'editar'])->name('tag.editar');
+    Route::post('tag', [TagController::class, 'guardar'])->name('tag.guardar');
+    Route::put('tag/{id}', [TagController::class, 'actualizar'])->name('tag.actualizar');
+    Route::delete('tag/{id}/eliminar', [TagController::class, 'eliminar'])->name('tag.eliminar');
 });

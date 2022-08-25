@@ -41,4 +41,5 @@ Categorias
             <div class="modal-body"></div>
         </div>
     </div>
+</div>
 @endsection

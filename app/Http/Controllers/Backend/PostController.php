@@ -46,7 +46,9 @@ class PostController extends Controller
     {
         $post = Post::create($request->validated());
         $categorias = $request->categoria;
-        $post->categoria()->attach(array_values($categorias));
+        $post->categoria()->attach(array_values($categorias));//se relacionan las categorías
+        $tags = $request->tag ? Tag::setTag($request->tag) : [];
+        $post->tag()->attach($tags);//se relacionan los tags
         return redirect()->route('post')->with('mensaje', 'Post guardado con éxito');
 
     }
