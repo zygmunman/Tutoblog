@@ -43,17 +43,6 @@ class TagController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Backend\Tag  $tag
-     * @return \Illuminate\Http\Response
-     */
-    public function mostrar(Tag $tag)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Backend\Tag  $tag
@@ -89,5 +78,6 @@ class TagController extends Controller
         Tag::destroy($id);
         return redirect()->route('tag')->with('mensaje', 'Tag eliminado con éxito');
     }
+
 
 }

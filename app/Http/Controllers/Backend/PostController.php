@@ -7,7 +7,7 @@ use App\Models\Backend\Post;
 use Illuminate\Http\Request;
 use App\Models\Backend\Categoria;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Backend\ValidarPost;
 
 class PostController extends Controller

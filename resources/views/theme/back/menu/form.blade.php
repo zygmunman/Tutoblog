@@ -15,7 +15,10 @@
     <div class="col-sm-5">
         <input type="text" name="icono" id="icono" class="form-control" value="{{old("icono", $data->icono ?? "")}}" maxlength="50">
     </div>
-    <div class="col-sm-1">
+    <!--<div class="col-sm-1">
         <span id="mostrar-icono" class="{{old("icono", $data->icono ?? "")}}"></span>
+    </div>-->
+    <div class="col-lg-1">
+        <span id="mostrar-icono" class="fa fa-fw {{old('icono')}}"></span>
     </div>
 </div>

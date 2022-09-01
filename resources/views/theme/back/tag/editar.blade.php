@@ -1,6 +1,6 @@
 @extends('theme.back.app')
 @section('titulo')
-Sistema tags
+Tags
 @endsection
 
 @section("scripts")
@@ -10,12 +10,15 @@ Sistema tags
 @section('contenido')
 <div class="row">
     <div class="col-md-12">
+        @if ($errors->any())
+            <x-alert tipo="danger" :mensaje="$errors"/>
+        @endif
         <div class="card">
             <div class="card-header bg-success">
                 <h5 class="text-white float-left">Editar tag: {{$tag->nombre}}</h5>
-                <!--<a href="{{route('tag')}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>-->
+                <a href="{{route('tag')}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>
             </div>
-            <form action="{{route("tag.actualizar", $tag->id)}}" id="form-general" class="form-horizontal" method="POST">
+            <form action="{{route("tag.actualizar", $tag)}}" id="form-general" class="form-horizontal" method="POST">
                 @csrf @method('put')
                 <div class="card-body">
                     @include("theme.back.tag.form")

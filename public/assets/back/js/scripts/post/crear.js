@@ -25,7 +25,7 @@ $(document).ready(function () {
         showCaption: false,
         showCancel: false,
         initialPreviewAsData: true,
-        theme: "fa6"
+        theme: "fa"
     });
     //var toolbarOptions = ['bold', 'italic', 'underline', 'strike'];
     var quill = new Quill('#body', {

@@ -1,21 +1,21 @@
 @extends('theme.back.app')
 @section('titulo')
-Sistema Tags
+    Tags
 @endsection
 
 @section("scripts")
-<script src="{{asset("assets/back/js/scripts/tag/crear.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/back/js/scripts/crear.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')
 <div class="row">
     <div class="col-md-12">
-        <!--@if ($mensaje = session("mensaje"))
+        @if ($mensaje = session("mensaje"))
             <x-alert tipo="success" :mensaje="$mensaje"/>
         @endif
         @if ($errors->any())
             <x-alert tipo="danger" :mensaje="$errors"/>
-        @endif-->
+        @endif
         <div class="card">
             <div class="card-header bg-success">
                 <h5 class="text-white float-left">Crear tags</h5>
@@ -31,7 +31,6 @@ Sistema Tags
                         <div class="row">
                             <div class="col-sm-3"></div>
                             <div class="col-sm-5">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>
@@ -42,3 +41,5 @@ Sistema Tags
     </div>
 </div>
 @endsection
+
+

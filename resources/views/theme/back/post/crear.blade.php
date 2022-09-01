@@ -12,7 +12,7 @@
 @section('scriptsPlugins')
     <script src="{{asset("assets/back/extra-libs/bootstrap-fileinput/js/fileinput.min.js")}}" type="text/javascript"></script>
     <script src="{{asset("assets/back/extra-libs/bootstrap-fileinput/js/locales/es.js")}}" type="text/javascript"></script>
-    <script src="{{asset("assets/back/extra-libs/bootstrap-fileinput/themes/fa6/theme.js")}}" type="text/javascript"></script>
+    <script src="{{asset("assets/back/extra-libs/bootstrap-fileinput/themes/fa4/theme.js")}}" type="text/javascript"></script>
     <script src="{{asset("assets/back/libs/select2/dist/js/select2.full.min.js")}}" type="text/javascript"></script>
     <script src="{{asset("assets/back/libs/select2/dist/js/i18n/es.js")}}" type="text/javascript"></script>
     <script src="{{asset("assets/back/libs/quill/dist/quill.min.js")}}" type="text/javascript"></script>

@@ -73,7 +73,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                ¿ Seguro desea eliminar este registro ?
+                                ¿Seguro desea eliminar este registro ?
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
