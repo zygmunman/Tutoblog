@@ -7,7 +7,7 @@ use App\Models\Backend\Post;
 use Illuminate\Http\Request;
 use App\Models\Backend\Categoria;
 use App\Http\Controllers\Controller;
-//use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Backend\ValidarPost;
 
 class PostController extends Controller
@@ -44,11 +44,26 @@ class PostController extends Controller
     public function guardar(ValidarPost $request)
 
     {
+
+
         $post = Post::create($request->validated());
         $categorias = $request->categoria;
         $post->categoria()->attach(array_values($categorias));//se relacionan las categorías
         $tags = $request->tag ? Tag::setTag($request->tag) : [];
         $post->tag()->attach($tags);//se relacionan los tags
+
+           //Trabajo con la imagen */
+        if($imagen = $request->imagen){
+            $folder = "imagen_post";
+            $peso = $imagen->getSize();
+            $extension = $imagen->extension();
+            $ruta = Storage::disk('public')->put($folder, $imagen);
+            $post->archivo()->create([
+                'ruta' => $ruta,
+                'extension' => $extension,
+                'peso' => $peso
+            ]);
+        }
         return redirect()->route('post')->with('mensaje', 'Post guardado con éxito');
 
     }

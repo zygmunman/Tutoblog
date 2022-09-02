@@ -25,14 +25,23 @@ Post
                             <tr>
                                 <th>Id</th>
                                 <th>Título</th>
+                                <th>Imagen</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($posts as $post)
-                                <tr>
-                                    <td>{{$post->id}}</td>
-                                    <td>{{$post->titulo}}</td>
-                                </tr>
+                                @php
+                                    $imagen = $post->archivo->ruta ?? null
+                                @endphp
+                                    <tr>
+                                        <td>{{$post->id}}</td>
+                                        <td>{{$post->titulo}}</td>
+                                        <td>
+                                            @if ($imagen)
+                                            <img src="{{asset("storage/$imagen")}}" alt="" width="30px">
+                                            @endif
+                                        </td>
+                                    </tr>
                             @endforeach
                         </tbody>
                     </table>
