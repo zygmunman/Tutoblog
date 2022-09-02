@@ -57,11 +57,13 @@ class PostController extends Controller
             $folder = "imagen_post";
             $peso = $imagen->getSize();
             $extension = $imagen->extension();
-            $ruta = Storage::disk('public')->put($folder, $imagen);
+            //$ruta = Storage::disk('public')->put($folder, $imagen);
+            $ruta = Storage::disk('s3')->put($folder, $imagen, 'public');//Solo para subir imágenes a Amazon (s3)
             $post->archivo()->create([
                 'ruta' => $ruta,
                 'extension' => $extension,
-                'peso' => $peso
+                'peso' => $peso,
+                'local' => false //Solo para subir imágenes a Amazon (s3)
             ]);
         }
         return redirect()->route('post')->with('mensaje', 'Post guardado con éxito');
