@@ -38,9 +38,7 @@ Post
                                         <td>{{$post->titulo}}</td>
                                         <td>
                                             @if ($imagen)
-                                            <!--La siguiente línea de código sirve para subir imágenes en el disco local
-                                            así com también para subirlas a Amazon (s3)-->
-                                            <img src="{{$imagen->local ? asset("storage/$imagen->ruta") Storage::disk('s3')->url($imagen->ruta)}}" alt="" width="30px">
+                                            <img src="{{asset("storage/$imagen")}}" alt="" width="30px">
                                             @endif
                                         </td>
                                     </tr>

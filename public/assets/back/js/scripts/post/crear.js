@@ -25,10 +25,10 @@ $(document).ready(function () {
         showCaption: false,
         showCancel: false,
         initialPreviewAsData: true,
-        theme: "fa"
+        theme: "fas"
     });
     //var toolbarOptions = ['bold', 'italic', 'underline', 'strike'];
-    var quill = new Quill('#body', {
+    var quill = new Quill('#contenido', {
         theme: 'snow',
         /*modules: {
             toolbar: toolbarOptions
@@ -36,7 +36,7 @@ $(document).ready(function () {
     });
 
     quill.on('editor-change', function (eventName){
-        $('#body-field').val(quill.root.innerHTML);
+        $('#contenido-field').val(quill.root.innerHTML);
     });
     const removeAccents = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
