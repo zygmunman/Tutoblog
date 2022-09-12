@@ -2,9 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Backend\Rol;
 use App\Models\Usuario;
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 
@@ -27,7 +25,7 @@ class Instalador extends Command
      *
      * @var string
      */
-    protected $description = 'Este comando ejecuta el instalador del proyecto';
+    protected $description = 'Este comando ejecuta el instalador inicial del proyecto';
 
     /**
      * Create a new command instance.
@@ -48,31 +46,9 @@ class Instalador extends Command
      */
     public function handle()
     {
-        if(!$this->verificar())
-        {
-            $rol = $this->crearRolSuperAdmin();
-            $usuario = $this->crearUsuarioSuperAdmin();
-            $usuario->roles()->attach($rol);
-            $this->line('El Rol y usuario Administrador se instalaron correctamente');
-        }else{
-            $this->error('No se puede ejecutar el instalador, porque ya hay un rol creado');
-        }
-
-    }
-
-    private function verificar()
-    {
-        return Rol::find(1);
-    }
-
-    private function crearRolSuperAdmin()
-    {
-        $rol = "Super Administrador";
-
-        return Rol::create([
-            'nombre' => $rol,
-            'slug' => Str::slug($rol, '_')
-        ]);
+        $usuario = $this->crearUsuarioSuperAdmin();
+        $usuario->roles()->attach(1);
+        $this->line('El Usuario Administrador se instaló correctamente');
     }
 
     private function crearUsuarioSuperAdmin()

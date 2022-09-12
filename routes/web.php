@@ -91,19 +91,9 @@ Route::group(['prefix' => 'admin-backend', 'middleware' => ['auth', 'superadmini
     Route::get('post/crear', [PostController::class, 'crear'])->name('post.crear');
     Route::get('post/{post}/editar', [PostController::class, 'editar'])->name('post.editar');
     Route::post('post', [PostController::class, 'guardar'])->name('post.guardar');
+    Route::post('post/{post}', [PostController::class, 'mostrar'])->name('post.mostrar');
     Route::put('post/{post}', [PostController::class, 'actualizar'])->name('post.actualizar');
     Route::delete('post/{post}/eliminar', [PostController::class, 'eliminar'])->name('post.eliminar');
-
-    /** RUTAS DE TAG*/
-
-    /*
-    Route::get('tag', [TagController::class, 'index'])->name('tag');
-    Route::post('tag/crear', [TagController::class, 'crear'])->name('tag.crear');
-    Route::put('tag/{id}/editar', [TagController::class, 'editar'])->name('tag.editar');
-    Route::post('tag', [TagController::class, 'guardar'])->name('tag.guardar');
-    Route::put('tag/{id}', [TagController::class, 'actualizar'])->name('tag.actualizar');
-    Route::delete('tag/{id}/eliminar', [TagController::class, 'eliminar'])->name('tag.eliminar');
-    */
 
      /* Rutas de Tag */
      Route::get('tag', [TagController::class, 'index'])->name('tag');

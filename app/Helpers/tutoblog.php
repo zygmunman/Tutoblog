@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Session;
 if (!function_exists('isSuperAdmin')) {
     function isSuperAdmin()
     {
-        return Session::get('rol_slug') == 'super_administrador';
+        return Session::get('rol_slug') == 'superadmin';
     }
 }
 //función que se utiliza cuando trabajamos con la caché de 'redis' y la variable de sesión
 if (!function_exists('canUser')) {
     function canUser($permiso, $redirect = true)
     {
-        if (Session::get('rol_slug') == 'super_administrador') {
+        if (Session::get('rol_slug') == 'superadmin') {
             return true;//Si el usuario es el 'super_administrador', puede entrar en cualquier parte del sistema,
                         //sin pasar por el módulo de 'permisos'
         } else {

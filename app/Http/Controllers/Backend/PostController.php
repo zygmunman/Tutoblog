@@ -74,7 +74,7 @@ class PostController extends Controller
      */
     public function mostrar(Post $post)
     {
-        //
+        return view("theme.back.post.mostrar", compact('post'));
     }
 
     /**
@@ -85,7 +85,9 @@ class PostController extends Controller
      */
     public function editar(Post $post)
     {
-        //
+        $categorias = Categoria::orderBy('id')->pluck('nombre', 'id');
+        $tags = Tag::orderBy('id')->pluck('nombre', 'id');
+        return view("theme.back.post.editar", compact('post', 'categorias', 'tags'));
     }
 
     /**
@@ -95,9 +97,30 @@ class PostController extends Controller
      * @param  \App\Models\Backend\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function actualizar(Request $request, Post $post)
+    public function actualizar(ValidarPost $request, Post $post)
     {
-        //
+        $post->update($request->validated());
+        $categorias = $request->categoria;
+        $post->categoria()->sync(array_values($categorias)); //Se relacionan las categorias
+        $tags = $request->tag ? Tag::setTag($request->tag) : [];
+        $post->tag()->sync($tags); //Se relacionan los tags
+        /**
+         * Trabajo con imagen
+         */
+        if ($imagen = $request->imagen) {
+            $folder = "imagen_post";
+            Storage::disk('public')->delete($post->archivo->ruta);
+            $post->archivo()->delete();
+            $peso = $imagen->getSize();
+            $extension = $imagen->extension();
+            $ruta = Storage::disk('public')->put($folder, $imagen);
+            $post->archivo()->create([
+                'ruta' => $ruta,
+                'extension' => $extension,
+                'peso' => $peso
+            ]);
+        }
+        return redirect()->route('post')->with('mensaje', 'Post actualizado con exito');
     }
 
     /**
@@ -108,6 +131,10 @@ class PostController extends Controller
      */
     public function eliminar(Post $post)
     {
-        //
+        Post::destroy($post);
+        cache()->tags('Post')->flush();
+        return redirect()->route('post')->with('mensaje', 'Post eliminado con éxito');
     }
 }
+
+
