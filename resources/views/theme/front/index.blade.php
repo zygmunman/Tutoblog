@@ -1,4 +1,4 @@
-@extends('theme.back.app')
+@extends('theme.front.app')
 
 @section('contenido')
 <div class="row">
@@ -6,6 +6,7 @@
         @if ($mensaje = session("mensaje"))
             <x-alert tipo="success" :mensaje="$mensaje"/>
         @endif
+        <h1>Aquí va el contenido</h1>
     </div>
 </div>
 @endsection
