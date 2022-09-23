@@ -25,12 +25,12 @@ Post
                             <tr>
                                 <th class="no-sort no-search" style="width:30px">Id</th>
                                 <th>Imagen</th>
-                                <!--<th class="no-sort no-search" style="width:40px"></th>-->
+                                    <!--<th class="no-sort no-search" style="width:40px"></th>-->
                                 <th>Título</th>
                                 <th>Categorías</th>
                                 <th>Tags</th>
-                                <th  style="width:60px">Acciones</th>
-                                <!--<th class="no-sort no-search" style="width:60px"></th>-->
+                                    <!--<th  style="width:60px">Acciones</th>-->
+                                <th class="no-sort no-search" style="width:60px">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>

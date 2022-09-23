@@ -129,9 +129,9 @@ class PostController extends Controller
      * @param  \App\Models\Backend\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function eliminar(Post $post)
+    public function eliminar($id)
     {
-        Post::destroy($post);
+        Post::destroy($id);
         cache()->tags('Post')->flush();
         return redirect()->route('post')->with('mensaje', 'Post eliminado con éxito');
     }

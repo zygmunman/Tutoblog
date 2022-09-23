@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\RolController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\FrontEnd\BlogController;
 use App\Http\Controllers\Backend\MenuRolController;
 use App\Http\Controllers\Backend\PermisoController;
 use App\Http\Controllers\Backend\CategoriaController;
@@ -24,21 +25,8 @@ use App\Http\Controllers\Backend\PermisoRolController;
 |
 */
 
-/**
- * Esta ruta llama a la vista 'theme.front.index' la cual extiende del layout o página de
- * Inicio que el autor ha llamado 'theme.back.app'
- */
 
-/*
-Route::get('mi-cuenta', function () {
-    return view('welcome');
-});
-*/
-
-Route::get('/', function () {
-    return view('theme.front.index');
-})->name('inicio');
-
+Route::get('/', [BlogController::class, 'index'])->name('inicio');
 
 Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
 

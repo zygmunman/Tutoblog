@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $('#data-table').DataTable({
         language: {
             url: '/assets/back/js/dtspanish.json',
@@ -16,30 +17,34 @@ $(document).ready(function () {
         order: [],
     });
 
+
+    /***
+     * Este código ha sido añadido por mí; y es el que funciona
+    */
+     $('.boton-eliminar').on('click', function (event) {
+        event.preventDefault();
+        form = $(this).parents('form:first');
+        $('#confirmar-eliminar').modal('show');
+    });
+
+    $('#accion-eliminar').on('click', function (event) {
+        event.preventDefault();
+        $('#confirmar-eliminar').modal('hide');
+        form.submit();
+    });
+
+    $('#nestable').nestable('expandAll');
+
+    /***
+     * Fin del código añadido
+     */
+
     $('.mostrar-post').on('click', function (event) {
         event.preventDefault();
         const data = {
             _token: $('input[name=_token]').val()
         };
         ajaxRequest($(this).attr('href'), data, 'mostrar-post');
-    });
-
-     //Proceso Eliminar Registro
-     $('#data-table').on('submit', '.eliminar-registro', function (event) {
-        event.preventDefault();
-        const form = $(this);
-        swal.fire({
-            title: '¿Seguro desea eliminar este registro?',
-            text: 'Confirmar acción',
-            type: 'warning',
-            showCancelButton: true,
-            cancelButtonText: 'Cancelar',
-            confirmButtonText: 'Aceptar',
-        }).then(function (result) {
-            if (result.value) {
-                ajaxRequest(form.attr('action'), form.serialize(), 'eliminar', form);
-            }
-        });
     });
 
     function ajaxRequest(url, data, accion) {

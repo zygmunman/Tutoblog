@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     $('#data-table').DataTable();
+
     $('.boton-eliminar').on('click', function (event) {
         event.preventDefault();
         form = $(this).parents('form:first');
