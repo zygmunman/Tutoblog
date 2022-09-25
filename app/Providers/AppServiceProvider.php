@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Backend\Menu;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function boot()
     {
         View::composer("theme.back.aside", function ($view) {
@@ -31,5 +33,7 @@ class AppServiceProvider extends ServiceProvider
             });
             $view->with('menuPrincipal', $menuP);
         });
+
+        Paginator::defaultView("vendor.pagination.default");
     }
 }
