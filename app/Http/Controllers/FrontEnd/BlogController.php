@@ -6,6 +6,7 @@ use  App\Http\Controllers\Controller;
 use App\Models\Backend\Tag;
 use App\Models\Backend\Post;
 use App\Models\Backend\Categoria;
+use BeyondCode\DumpServer\Dumper;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -28,9 +29,12 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function mostrar($id)
+    public function mostrar(Request $request, $slug)
     {
-        //
+        $categorias = Categoria::orderBy('nombre')->get();
+        $tags = Tag::orderBy('nombre')->get();
+        $post = Post::where('slug', $slug)->first();
+        return view('theme.front.blog.mostrar', compact('post', 'categorias', 'tags'));
     }
 
     public function categoria(Request $request, $slug){
