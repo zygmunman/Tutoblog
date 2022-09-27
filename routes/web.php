@@ -26,10 +26,6 @@ use App\Http\Controllers\Backend\PermisoRolController;
 */
 
 
-Route::get('/', [BlogController::class, 'index'])->name('inicio');
-Route::get('/{slug}', [BlogController::class, 'mostrar'])->name('blog.mostrar');
-Route::get('categoria/{slug}', [BlogController::class, 'categoria'])->name('blog.categoria');
-Route::get('tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
 
 Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
 
@@ -94,3 +90,11 @@ Route::group(['prefix' => 'admin-backend', 'middleware' => ['auth', 'superadmini
      Route::put('tag/{id}', [TagController::class, 'actualizar'])->name('tag.actualizar');
      Route::delete('tag/{id}', [TagController::class, 'eliminar'])->name('tag.eliminar');
 });
+
+Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
+Route::post('mi-cuenta', [MiCuentaController::class, 'guardar'])->middleware('auth')->name('mi-cuenta.guardar');
+Route::get('/', [BlogController::class, 'index'])->name('inicio');
+Route::get('categoria/{slug}', [BlogController::class, 'categoria'])->name('blog.categoria');
+Route::get('tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
+Route::get('{slug}', [BlogController::class, 'mostrar'])->name('blog.mostrar');
+
