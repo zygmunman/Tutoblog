@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\PermisoController;
 use App\Http\Controllers\Backend\CategoriaController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermisoRolController;
+use App\Http\Controllers\FrontEnd\ComentarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +94,8 @@ Route::group(['prefix' => 'admin-backend', 'middleware' => ['auth', 'superadmini
 
 Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
 Route::post('mi-cuenta', [MiCuentaController::class, 'guardar'])->middleware('auth')->name('mi-cuenta.guardar');
+Route::post('comentario/{post}', [ComentarioController::class, 'guardar'])->middleware('auth')->name('comentario.guardar');
+
 Route::get('/', [BlogController::class, 'index'])->name('inicio');
 Route::get('categoria/{slug}', [BlogController::class, 'categoria'])->name('blog.categoria');
 Route::get('tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');

@@ -25,13 +25,13 @@
                                 <p>
                                     {{ $post->descripcion }}
                                 </p>
-                                <a href="{{ route('blog.mostrar', $post->slug) }}" class="more">Leer mas <i
+                                <a href="{{ route('blog.mostrar', $post->slug) }}" class="more">Leer más <i
                                         class="icon-angle-right"></i></a>
                             </div>
                         </div>
                         <hr class="blog-post-sep">
                     @endforeach
-                        {{ $posts->links() }}ƒ
+                        {{ $posts->links() }}
                 </div>
                     @include('theme.front.blog.sidebar')
             </div>
