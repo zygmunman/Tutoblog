@@ -37,7 +37,7 @@ Mi cuenta
                 </div>
                 <div class="border-top">
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row" >
                             <div class="col-sm-3"></div>
                             <div class="col-sm-5">
                                 <button type="submit" class="btn btn-success">Guardar</button>

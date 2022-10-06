@@ -77,9 +77,10 @@ Route::group(['prefix' => 'admin-backend', 'middleware' => ['auth', 'superadmini
     /** RUTAS DE POST */
     Route::get('post', [PostController::class, 'index'])->name('post');
     Route::get('post/crear', [PostController::class, 'crear'])->name('post.crear');
-    Route::get('post/{post}/editar', [PostController::class, 'editar'])->name('post.editar');
+    Route::post('post/{post}/editar', [PostController::class, 'editar'])->name('post.editar');
     Route::post('post', [PostController::class, 'guardar'])->name('post.guardar');
-    Route::post('post/{post}', [PostController::class, 'mostrar'])->name('post.mostrar');
+    /**el método de 'mostrar' era 'post'; daba error y lo he cambiado a 'get' */
+    Route::get('post/{post}', [PostController::class, 'mostrar'])->name('post.mostrar');
     Route::put('post/{post}', [PostController::class, 'actualizar'])->name('post.actualizar');
     Route::delete('post/{post}/eliminar', [PostController::class, 'eliminar'])->name('post.eliminar');
 
