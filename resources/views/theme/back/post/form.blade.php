@@ -9,21 +9,18 @@
         $imagen = $archivo->local ? asset("storage/$archivo->ruta") : Storage::disk("s3")->url($archivo->ruta);
     }
 @endphp
-
 <div class="form-group row">
     <label for="titulo" class="col-sm-2 text-right control-label requerido">Título</label>
     <div class="col-sm-8">
         <input type="text" name="titulo" id="titulo" class="form-control" value="{{old('titulo', $post->titulo ?? "")}}" maxlength="150" required/>
     </div>
 </div>
-
 <div class="form-group row">
     <label for="slug" class="col-sm-2 text-right control-label requerido">Slug</label>
     <div class="col-sm-8">
         <input type="text" name="slug" id="slug" class="form-control" value="{{old('slug', $post->slug ?? "")}}" maxlength="150" required/>
     </div>
 </div>
-
 <div class="form-group row">
     <label for="categoria" class="col-sm-2 text-right control-label requerido">Categoría</label>
     <div class="col-sm-8">
@@ -35,7 +32,6 @@
         </select>
     </div>
 </div>
-
 <div class="form-group row">
     <label for="tag" class="col-sm-2 text-right control-label">Tags</label>
     <div class="col-sm-8">
@@ -51,14 +47,12 @@
         </select>
     </div>
 </div>
-
 <div class="form-group row">
     <label for="descripcion" class="col-sm-2 text-right control-label requerido">Descripción</label>
     <div class="col-sm-8">
         <textarea name="descripcion" id="descripcion" class="form-control" rows="3" maxlength="255" required>{{old("descripcion", $post->descripcion ?? "")}}</textarea>
     </div>
 </div>
-
 <div class="form-group row">
     <label for="contenido" class="col-sm-2 text-right control-label requerido">Cuerpo</label>
     <div class="col-sm-8">
@@ -69,12 +63,16 @@
         <input type="hidden" name="contenido" id="contenido-field" value="{!!old("contenido", $post->contenido ?? "")!!}">
     </div>
 </div>
-
+<div class="form-group row">
+    <label for="video" class="col-sm-2 text-right control-label">Id video</label>
+    <div class="col-sm-8">
+        <input type="text" name="video" id="video" class="form-control" value="{{old("video", $post->video ?? "")}}" maxlength="100">
+    </div>
+</div>
 <div class="form-group row">
     <label for="imagen" class="col-sm-2 text-right control-label requerido">Imagen</label>
     <div class="col-sm-5">
         <input type="file" name="imagen" id="imagen" data-initial-preview="{{$imagen}}" accept="image/*">
     </div>
 </div>
-
 <input type="hidden" name="usuario_id" value="{{Auth::user()->id}}">

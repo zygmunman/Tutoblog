@@ -12,7 +12,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = 'post';
-    protected $fillable = ['usuario_id', 'titulo', 'slug', 'descripcion', 'contenido', 'estado'];
+    protected $fillable = ['usuario_id', 'titulo', 'slug', 'descripcion', 'contenido', 'estado', 'video'];
 
     public function categoria()
     {
